@@ -67,13 +67,13 @@ string names ;
 string brotherNames;
 
 //cout<<myGlobal;
-couti();
-cout<< "Enter your names : ";
-getline(cin,names);
-cout<<names <<endl;
-cout << "ENter your brother's name :";
-getline(cin,brotherNames);
-cout << brotherNames;
+// couti();
+// cout<< "Enter your names : ";
+// getline(cin,names);
+// cout<<names <<endl;
+// cout << "ENter your brother's name :";
+// getline(cin,brotherNames);
+// cout << brotherNames;
 
 	
 	

@@ -2,7 +2,7 @@
 #include<vector>
 using namespace std;
 int main(){
-	vector<int> vec_1={1,2,3,4,5,5};
+	vector<int> vec_1={1,2,3,4,5,6};
 	vector<int> vec_2(5,12);
 	vector<int> vec_3{6,7,8,9,10};
 	int i;
@@ -20,7 +20,24 @@ int main(){
 		cout<<endl<<"============";
 		cout<<vec_1[i];
 	}
-	
+	cout<<"***************";
+	auto begin=*vec_1.begin();
+	cout<<endl<<begin<<endl;
+	auto end=*vec_1.end();
+	cout<<end<<endl;
+	auto rbegin=*vec_1.rbegin();
+	cout<<rbegin<<endl;
+	auto rend=*vec_1.rend();
+	cout<<rend<<endl;
+	auto cbegin=*vec_1.cbegin();
+	cout<<cbegin<<endl;
+	auto cend=*vec_1.cend();
+	cout<<cend<<endl;
+	auto crbegin=*vec_1.crbegin();
+	cout<<crbegin<<endl;
+	auto crend=*vec_1.crend();
+	cout<<crend<<endl;
+
 
 	return 0;
 }
