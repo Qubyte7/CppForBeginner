@@ -14,6 +14,17 @@ int couti(){
 	return myGlobal;
 }
 
+int fact(int n){
+    ///cout<<n<<endl;
+    // Step1: Best Case
+    if(n < 0) return -1;
+    if(n==0) return 1;
+// Step 2: Assumption 
+     int smallerAnswer = fact(n-1);
+       // Step 3: Calculation
+     return n*smallerAnswer ;
+}
+
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 int main(int argc, char** argv) {
 //	cout <<"hello world"<<endl;
@@ -62,9 +73,9 @@ int main(int argc, char** argv) {
 //
 //cout<<fullname <<endl <<initialAmount <<endl << rate <<endl << frequency<< endl <<interest;		
 	
-	
-string names ; 
-string brotherNames;
+//	
+//string names ; 
+//string brotherNames;
 
 //cout<<myGlobal;
 // couti();
@@ -75,8 +86,15 @@ string brotherNames;
 // getline(cin,brotherNames);
 // cout << brotherNames;
 
-	
-	
+
+//
+//   int n=5;
+//
+//     int answer = fact(n);
+//     cout<<answer <<endl;
+
+
+
 	
 	
 	
