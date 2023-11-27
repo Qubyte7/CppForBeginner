@@ -1,54 +1,31 @@
-#include <iostream>
+#include  <iostream>
+#include <iterator>
+
 using namespace std;
-void selectionSort(int arr[], int n)
-{
-    int i, j, min_index;
-    for (i = 0; i < n - 1; i++)
-    {
-        min_index = i;
-        int temp = 0;
-        for (j = i + 1; j < n; j++)
-        {
-            if (arr[j] < arr[min_index])
-            {
-                min_index = j;
-            }
-            if (min_index != i)
-                // swap(arr[min_index], arr[i]);
-                 temp = arr[min_index];
-                arr[min_index] = arr[i];
-                arr[i]= temp;
-
-           
-        };
-         int i;
-            for (i = 0; i < n; i++)
-            {
-                cout << arr[i] << " ";
-            }
-            cout << endl;
+void selectionSort(int array[],int n){
+int i,j,min_index;
+for(i=0;i<n-1;i++){
+    min_index = i;
+    for(j=i+1;j<n;j++){
+        if(array[j]<array[min_index]){
+            min_index = j;
+        }
     }
-};
-// void printArray(int arr[], int size)
-// {
-//     int i;
-//     for (i = 0; i < size; i++) {
-//         cout << arr[i] << " ";
-//         cout << endl;
-//     }
-// }
+    swap(array[i],array[min_index]);
+}
 
-// Driver program
-int main()
-{
-    int arr[] = {64,7,5,2, 22,12, 11};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    // array steps
-    selectionSort(arr, n);
 
-    // Function Call
-    // selectionSort(arr, n);
-    // cout << "Sorted array: \n";
-    // printArray(arr, n);
+}
+
+int main(){
+    int numbers[]{23,45,34,345,1,2,6};
+    int sizing = sizeof(numbers)/sizeof(int);
+    selectionSort(numbers,sizing);
+    for(int k : numbers){
+    cout << " " << k ;
+    
+}
+
+
     return 0;
 }
