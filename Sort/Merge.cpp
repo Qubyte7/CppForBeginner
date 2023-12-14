@@ -1,16 +1,6 @@
 #include<iostream>
 using namespace std;
-void merge_sort(int a[],int length){
-    merge_sort_divide_recursion(a,0,length-1);
-};
-void merge_sort_divide_recursion(int a[],int l,int r){//l represents  the small index and r represents the large index of our array
-    int m = l+(r-l)/2;//this is going to look at the middle index of the array
-   if(l<r){
-    merge_sort_divide_recursion(a,l,m); 
-    merge_sort_divide_recursion(a,m+1,r);
-    merge_sorted_array(a,l,m,r);//here we are providing the sorted and divided array to the merge_sorted_array function to merge them
-   }
-};
+
 void merge_sorted_array(int a[],int l,int m,int r){
     int left_index_length = m-l+1;
     int right_index_length = r-m;
@@ -35,6 +25,18 @@ void merge_sorted_array(int a[],int l,int m,int r){
              j++;
          }
     }
+};
+
+void merge_sort_divide_recursion(int a[],int l,int r){//l represents  the small index and r represents the large index of our array
+    int m = l+(r-l)/2;//this is going to look at the middle index of the array
+   if(l<r){
+    merge_sort_divide_recursion(a,l,m); 
+    merge_sort_divide_recursion(a,m+1,r);
+    merge_sorted_array(a,l,m,r);//here we are providing the sorted and divided array to the merge_sorted_array function to merge them
+   }
+};
+void merge_sort(int a[],int length){
+    merge_sort_divide_recursion(a,0,length-1);
 };
 
 int main(){
