@@ -206,6 +206,30 @@ Node *insertAtPos(Node *head,int i,int data){
 //     }
 //     return head;
 // }
+Node *deleteFirstNode(Node* head){
+    if(head == NULL)
+        return NULL;
+    Node* temp = head;
+    head = temp->next;
+    delete temp;
+    return head;
+
+}
+Node* deleteLast(Node* head){
+    if(head == NULL)
+        return NULL;
+    if (head->next == NULL){
+        delete head;
+        return NULL;
+    }
+    Node* second_last = head;
+    while(second_last->next->next != NULL){
+        second_last = second_last;
+    }
+    delete(second_last->next);
+    second_last->next = NULL;
+    return head;
+}
 
 void display(Node* n)
 {
@@ -226,7 +250,21 @@ int main()
     root->next=second;
     second->next=third;
     Node *head=root;
-    head=insertAtPos(head,2,250);
+    int n;
+    cout<<"Enter the postiion at which you want to insert : ";
+    cin>>n;
+    cout<<"Enter the value :";
+    int number;
+    cin>>number; 
+    cout<<"value "<<number<<" is placed at position"<<n <<endl;
+    head=insertAtPos(head,n,number);
+    display(head);
+    cout<<" delete FIRST :";
+    head=deleteFirstNode(head);
+    display(head);
+    cout<<" CONTINUE";
+    cout<<"deleted from Last : "<<endl;
+    head = deleteLast(head);
     display(head);
     return 0;
 
