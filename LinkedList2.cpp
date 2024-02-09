@@ -230,6 +230,43 @@ Node* deleteLast(Node* head){
     second_last->next = NULL;
     return head;
 }
+Node* deleteNode(Node* head,int i){
+  if(i<0){
+      return head;
+   }
+   if(i==0 && head){
+//Store the address of the next node
+    Node* newHead = head->next;
+//Isolate the current node
+    head->next = NULL;
+//Delete the current head node
+    delete head;
+//Start the LL with the new Head
+    return newHead;
+   }
+//Keep head in a temp curr variable
+  Node* curr = head;
+   int count = 1;
+//Before the target, if the current pointer is valid change the current to the next of current
+   while(count<i-1 && curr!=NULL){
+    curr = curr->next;
+    count++;
+   }
+    if(curr && curr->next){
+//Keep the address of element to delete
+     Node *temp = curr->next;
+//Change the next of current to the temp current
+     curr->next = curr->next->next;
+//Deallocate the temp memory
+     temp->next=NULL;
+//Delete the temp
+     delete temp;
+//return the head
+     return head;
+   }
+   return head;
+
+}
 
 void display(Node* n)
 {
@@ -266,6 +303,12 @@ int main()
     cout<<"deleted from Last : "<<endl;
     head = deleteLast(head);
     display(head);
+    cout<<"delete at any position : "<<endl;
+    cout<<"position : "<<endl;
+    n=0;
+    cin>>n;
+    head=deleteFirstNode(head);
+     
     return 0;
 
 }
