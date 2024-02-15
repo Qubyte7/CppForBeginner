@@ -27,21 +27,21 @@ Node *AddAtTail(Node *head, int value)
 {
    Node *newNode = new Node(value);
    Node *temp = head;
-   if (temp->pointer != NULL)
+   while(head->pointer != NULL)
    {
-      temp =temp->pointer;
+      head =head->pointer;
    }
-   temp->pointer = newNode;
+   head->pointer = newNode;
    newNode->pointer = NULL;
-   return head;
+   return temp;
 }
 
 Node *AddAtHead(Node *head, int value){
    Node *newNode = new Node(value);
-   Node *temp = head;
+   newNode->pointer = head;
    head = newNode;
-   newNode->pointer = temp;
    return head;
+    display(head);
 }
 int main()
 {
@@ -49,26 +49,30 @@ int main()
    Node *node2 = new Node(3);
    Node *node3 = new Node(4);
    Node *node4 = new Node(5);
+   Node *node5 = new Node(6);
    node1->pointer = node2;
    node2->pointer = node3;
    node3->pointer = node4;
+   node4->pointer = node5;
    Node *head = node1;
-   cout << "we are displaying sth  : " << endl;
+   cout << "the List is as follows  : " << endl;
    display(head);
    cout << " I THINK !";
    cout<< "Now we are going to something at tail, ENTER A VALUE :";
    int value;
    cin>>value;
    AddAtTail(head,value);
-   cout<<"Now check that it had been added ?? : ";
+   cout<<"and the output when adding a value at tail is bellow : ";
    display(head);
+   cout<<"why is 4,5 and 6 not being displayed ?";
    cout<<"hOORAY !!!" << endl;
-   // cout<<"What if we added somthing in the front of the List ???"<<endl;
-   // cout<<"Enter the value to be added :";
-   // cin>>value;
-   // cout<<"Did also work :";
-   // AddAtHead(head,value);
-   // display(head);
-   // cout<<"oOOh My we are genius ! ";
+   cout<<"What if we added somthing in the front of the List ???"<<endl;
+   cout<<"Enter the value to be added :";
+   int vs;
+   cin>>vs;
+   cout<<"Did also work :";
+   
+   display(AddAtHead(head,vs));
+   cout<<"oOOh My we are genius ! ";
    
 }
