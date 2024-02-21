@@ -25,13 +25,13 @@ void display(Node *head)
     }
     cout << "NULL" << endl;
 }
+
 Node *insertAtHead(Node *head,int data){
  Node *newNode =new Node(data);
  if(head != NULL){
      newNode->next = head;
  }
  return newNode;
-
 }
 
 Node *insertAtTail(Node *head,int data){
@@ -43,6 +43,12 @@ Node *insertAtTail(Node *head,int data){
     }
     temp->next = newNode;
     return head;
+}
+
+Node *deleteAtFront(Node *head){
+    Node *temp = head->next;
+    delete head;
+    return temp;
 }
 
 
@@ -64,12 +70,14 @@ int main()
     int data;
     cin>>data;
     Node *newHead = insertAtHead(node1,data);
-    final->next = newHead;
-    cout<< " We are even capable of inserting at the end ,"
-        <<" Enter the value to INSERT :";
-    cin>>data;
-    Node *newTail = insertAtTail(newHead,data);
-    display(newTail);
+    // cout<< " We are even capable of inserting at the end ,"
+    //     <<" Enter the value to INSERT :";
+    // cin>>data;
+    // Node *newTail = insertAtTail(newHead,data);
+    cout<< "Now we are Removing what add at the Front see the bellow Answer to check"<<endl;
+    Node *newBoss = deleteAtFront(newHead);
+    final->next = newBoss;
+    display(newBoss);
     //deallocating memory
     delete node1;
     delete node2;
