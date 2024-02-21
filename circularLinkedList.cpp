@@ -34,6 +34,17 @@ Node *insertAtHead(Node *head,int data){
 
 }
 
+Node *insertAtTail(Node *head,int data){
+    Node *newNode = new Node(data);
+    newNode->next = head;
+    Node *temp = head;
+    while(temp->next != head){
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    return head;
+}
+
 
 
 
@@ -54,6 +65,18 @@ int main()
     cin>>data;
     Node *newHead = insertAtHead(node1,data);
     final->next = newHead;
-    display(newHead);
+    cout<< " We are even capable of inserting at the end ,"
+        <<" Enter the value to INSERT :";
+    cin>>data;
+    Node *newTail = insertAtTail(newHead,data);
+    display(newTail);
+    //deallocating memory
+    delete node1;
+    delete node2;
+    delete node3;
+    delete node4;
+    delete final;
+    delete newHead;
+
     return 0;
 }
